@@ -1,7 +1,7 @@
 # Shutdown Timer
 ## by alba4k
 
-![App Logo](shutdown/assets/icon.png)
+![Screenshot](misc/screenshot.png)![App Logo](misc/icon.png)
 
 Why are you even reading this though?
 
