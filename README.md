@@ -30,7 +30,7 @@ a lot of useless stuff will appear, your executable will be in a new directory c
 It can be moved, but it should always be in the same directory as the folder named "shutdown"
 
 
-I woudld also like to thank Leonardo Preda for helping me to design a nice UI
+I would also like to thank Leonardo Preda for helping me to design a nice UI
 
 ---
 
