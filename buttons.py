@@ -18,3 +18,14 @@ if sys.platform == ("darwin" or "linux" or "linux2"):
         os.system("sleep " + str(seconds+minutes*60+hours+3600) + " && reboot")
     def logout(seconds, minutes, hours):
         os.system("sleep " + str(seconds+minutes*60+hours+3600) + " && logout")
+    def cancel():
+        os.system("shutdown -c")
+
+def shutdown(seconds, minutes, hours):
+    os.system("sleep " + str(seconds+minutes*60+hours+3600) + " && poweroff")
+def restart(seconds, minutes, hours):
+    os.system("sleep " + str(seconds+minutes*60+hours+3600) + " && reboot")
+def logout(seconds, minutes, hours):
+    os.system("sleep " + str(seconds+minutes*60+hours+3600) + " && logout")
+def cancel():
+    os.system("shutdown -c")
