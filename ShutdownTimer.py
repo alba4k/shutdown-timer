@@ -1,7 +1,7 @@
 import json
 import tkinter as tk
 from PIL import ImageTk
-import buttons
+import shutdown/buttons
 
 settings_json = open("shutdown/settings.json", "r+")
 settings = json.loads(settings_json.read())
