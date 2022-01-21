@@ -14,6 +14,7 @@ Features:
 
 
 Dependencies:
+* git (cloning the directory)
 * Python
 * pyinstaller (to be installed with `pip install pyinstaller`)
 
