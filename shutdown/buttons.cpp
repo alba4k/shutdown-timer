@@ -22,9 +22,10 @@ def cancel():
 */
 
 #include <iostream>
+#include <cmath>
 
 void shutdown(int seconds, int minutes, int hours) {
-    std::cout << seconds/60 + minutes + hours*60;
+    std::cout << ceil((float)seconds/60) + minutes + hours*60;
 }
 
 int main() {

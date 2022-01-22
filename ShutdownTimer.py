@@ -3,7 +3,6 @@ import tkinter as tk
 from PIL import ImageTk
 import sys
 sys.path.append("shutdown")
-import buttons
 
 settings_json = open("shutdown/settings.json", "r+")
 settings = json.loads(settings_json.read())
