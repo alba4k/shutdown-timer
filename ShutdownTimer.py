@@ -69,7 +69,7 @@ def theme_check(theme = None,
 
 def open_settings():
     settings_display = tk.Tk()
-    settings_display.geometry("250x200")
+    settings_display.geometry("280x200")
     lang_choice = tk.StringVar(settings_display)
     lang_choice.set(lang["lang_name"])
 
@@ -92,7 +92,7 @@ def open_settings():
     )
     theme.place(x=15, y=60)
 
-    theme_check(theme, settings_display, theme_desc)
+    theme_check(theme, settings_display, theme_desc, lang_select)
 
 display=tk.Tk(className="\nShutdown")
 display.geometry("400x250")
@@ -114,25 +114,29 @@ version.place(x = 12, y = 220)
 shutdown_button = tk.Button(display,
     image = shutdown_icon,
     command=lambda: buttons.shutdown(seconds.get(), minutes.get(), hours.get()),
-    borderwidth=0)
+    borderwidth=0
+)
 shutdown_button.place(x=50,y=150)
 
 restart_button = tk.Button(display,
     image = restart_icon,
     command=lambda: buttons.restart(seconds.get(), minutes.get(), hours.get()),
-    borderwidth=0)
+    borderwidth=0
+)
 restart_button.place(x=125,y=150)
 
 logout_button = tk.Button(display,
     image = logout_icon,
     command=lambda: buttons.logout(seconds.get(), minutes.get(), hours.get),
-    borderwidth=0)
+    borderwidth=0
+)
 logout_button.place(x=200,y=150)
 
 cancel = tk.Button(display,
     image = cancel_icon,
     command=buttons.cancel,
-    borderwidth=0)
+    borderwidth=0
+)
 cancel.place(x=300,y=150)
 
 settings_show = tk.Button(display,
