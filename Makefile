@@ -1,8 +1,8 @@
-buttons: shutdown/buttons.o
-	g++ shutdown/buttons.o -o shutdown/buttons
+unix: shutdown/buttons.cpp
+	g++ shutdown/buttons.cpp -o shutdown/buttons
 
-buttons.o: shutdown/buttons.cpp
-	g++ -c shutdown/buttons.cpp -o shutdown/buttons.o
+windows: shutdown/buttons.cpp
+	i686-w64-mingw32-g++ shutdown/buttons.cpp -o shutdown/buttons.exe
 
 clean:
-	rm shutdown/*.o shutdown/buttons
+	rm shutdown/*.exe shutdown/buttons
