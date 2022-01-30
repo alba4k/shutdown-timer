@@ -1,7 +1,1 @@
-Shutdown Timer Version 1.1 CHANGELOG
-    - The window title changed from "Shutdown - alba4k" to "Shutdown"
-    - Added a window icon
-    - Added a version label in the left bottom corner
-    - The "CONFIRM" and "CANCEL" buttons are now colored
-    - A dark mode is now avaiable
-    - the theme changed
+Shutdown Timer Version 1.2 CHANGELOG
