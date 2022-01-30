@@ -1,8 +1,6 @@
 import json
 import tkinter as tk
 from PIL import ImageTk
-import sys
-sys.path.append("shutdown")
 import unixlib as buttons
 
 settings_json = open("shutdown/settings.json", "r+")
@@ -39,8 +37,8 @@ def theme_check(theme = None,
             settings_display.title(lang["settings.title"])
             theme.config(bg="#272727", fg = "#F0F0F0", activebackground = "#202020", activeforeground="#F0F0F0",text=lang["settings.theme"])
             theme_desc.config(bg = "#1c1c1c", fg = "#f0f0f0",text=lang["settings.theme_desc"])
-            lang_select.config(bg = "#1c1c1c", fg = "#f0f0f0")
-            lang_select["menu"].config(bg = "#1c1c1c", fg = "#f0f0f0")
+            lang_select.config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#1c1c1c", activeforeground="#F0F0F0", highlightthickness=0)
+            lang_select["menu"].config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#222299", activeforeground="#F0F0F0")
         except:
             pass
     else:    # light theme is on (primary window, display)
@@ -62,8 +60,8 @@ def theme_check(theme = None,
             settings_display.title(lang["settings.title"])
             theme.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000", text=lang["settings.theme"])
             theme_desc.config(bg = "#f0f0f0", fg = "#000000", text=lang["settings.theme_desc"])
-            lang_select.config(bg = "#f0f0f0", fg = "#000000")
-            lang_select["menu"].config(bg = "#f0f0f0", fg = "#000000")
+            lang_select.config(bg = "#f0f0f0", fg = "#000000", activebackground="#f0f0f0", activeforeground="#000000", highlightthickness=0)
+            lang_select["menu"].config(bg = "#f0f0f0", fg = "#000000", activebackground="#9999FF", activeforeground="#000000")
         except:
             pass
 
@@ -75,13 +73,13 @@ def open_settings():
 
     lang_select = tk.OptionMenu(settings_display,
         lang_choice,
-        *["English", "Italiano", "Español", "Frainçois"],
+        *["English", "Italiano", "Español", "Frainçois"]
     )
     lang_select.place(x=15, y=15)
 
     theme_desc = tk.Label(settings_display,
-    font = ("Helvetica, 12"),
-    highlightthickness=0
+        font = ("Helvetica, 12"),
+        highlightthickness=0
     )
     theme_desc.place(x=70, y=55)
 
