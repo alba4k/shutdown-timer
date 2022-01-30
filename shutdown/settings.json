@@ -1,4 +1,28 @@
 {
-  "lang": "english.json",
-  "usingDarkTheme": true
+    "lang": "English",
+    "usingDarkTheme": true,
+    "English": {
+        "display.version": "Version",
+        "settings.title": "Settings",
+        "settings.theme": "Theme",
+        "settings.theme_desc": "Changes the theme\nbetween light and dark."
+    },
+    "Italian": {
+        "display.version": "Versione",
+        "settings.title": "Impostazioni",
+        "settings.theme": "Tema",
+        "settings.theme_desc": "Cambia il tema\ntra chiaro e scuro"
+    },
+    "French": {
+        "display.version": "Version",
+        "settings.title": "\nOptions",
+        "settings.theme": "Th\u00e8me",
+        "settings.theme_desc": "Changer le th\u00e8me entre\bclair et sombre."
+    },
+    "Spanish": {
+        "display.version": "Version",
+        "settings.title": "\nAjustes",
+        "settings.theme": "Tema",
+        "settings.theme_desc": "Cambia el tema entre\nclaro y oscuro."
+    }
 }
