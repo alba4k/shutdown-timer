@@ -2,8 +2,8 @@ import tkinter as tk
 import os
 
 display=tk.Tk(className="\nShutdown")
-display.geometry("250x330")
-display.iconbitmap(r"shutdown/icon.ico")
+display.geometry("315x330")
+#display.iconbitmap("shutdown/icon.ico")
 command,hours,minutes,seconds=tk.StringVar(),tk.IntVar(),tk.IntVar(),tk.IntVar()
 
 def _confirm():
@@ -72,7 +72,7 @@ if(current_theme):           # dark theme
         bg = "#1F1F1F", fg = "#F0F0F0",
         activebackground = "#1F1F1F", activeforeground="#F0F0F0")
     theme.place(x=200, y=280)
-    choice = tk.Label(text="Type here what you want to do:\n    - shutdown\n    - restart\n    - disconnect (no timer)",
+    choice = tk.Label(text="Type here what you want to do:\n    - shutdown\n    - restart\n    - disconnect -",
         bg = "#1C1C1C", fg = "#F0F0F0")
     choice.place(x=40,y=4)
     choice_entry = tk.Entry(textvar=command, bg = "#1C1C1C", fg = "#F0F0F0")
@@ -104,7 +104,7 @@ else:                           # light theme
     theme = tk.Button(text="Theme",
         command=theme_check)
     theme.place(x=200, y=280)
-    choice = tk.Label(text="Type here what you want to do:\n    - shutdown -\n    - restart -\n    - disconnect (no timer) -")
+    choice = tk.Label(text="Type here what you want to do:\n    - shutdown -\n    - restart -\n    - disconnect -")
     choice.place(x=40,y=4)
     choice_entry = tk.Entry(textvar=command)
     choice_entry.place(x=70,y=72)
