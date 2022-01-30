@@ -3,7 +3,7 @@ import tkinter as tk
 from PIL import ImageTk
 import sys
 sys.path.append("shutdown")
-import buttons
+import unixlib as buttons
 
 settings_json = open("shutdown/settings.json", "r+")
 settings = json.loads(settings_json.read())
@@ -79,7 +79,10 @@ def open_settings():
     )
     lang_select.place(x=15, y=15)
 
-    theme_desc = tk.Label(settings_display,font = ("Helvetica, 12"))
+    theme_desc = tk.Label(settings_display,
+    font = ("Helvetica, 12"),
+    highlightthickness=0
+    )
     theme_desc.place(x=70, y=55)
 
     theme = tk.Button(settings_display,
@@ -89,6 +92,7 @@ def open_settings():
             lang_select,
             True
         ),
+        highlightthickness=0
     )
     theme.place(x=15, y=60)
 
@@ -114,43 +118,51 @@ version.place(x = 12, y = 220)
 shutdown_button = tk.Button(display,
     image = shutdown_icon,
     command=lambda: buttons.shutdown(seconds.get(), minutes.get(), hours.get()),
-    borderwidth=0
+    borderwidth=0,
+    highlightthickness=0
 )
 shutdown_button.place(x=50,y=150)
 
 restart_button = tk.Button(display,
     image = restart_icon,
     command=lambda: buttons.restart(seconds.get(), minutes.get(), hours.get()),
-    borderwidth=0
+    borderwidth=0,
+    highlightthickness=0
 )
 restart_button.place(x=125,y=150)
 
 logout_button = tk.Button(display,
     image = logout_icon,
     command=lambda: buttons.logout(seconds.get(), minutes.get(), hours.get),
-    borderwidth=0
+    borderwidth=0,
+    highlightthickness=0
 )
 logout_button.place(x=200,y=150)
 
 cancel = tk.Button(display,
     image = cancel_icon,
     command=buttons.cancel,
-    borderwidth=0
+    borderwidth=0,
+    highlightthickness=0
 )
 cancel.place(x=300,y=150)
 
 settings_show = tk.Button(display,
     command=open_settings,
-    borderwidth=0)
+    borderwidth=0,
+    highlightthickness=0
+)
 settings_show.place(x=300, y=50)
 
 timer_label_1 = tk.Label(display,
     text=":",
-    font=("Calibri", 25, "bold"))
+    font=("Calibri", 25, "bold")
+)
 timer_label_1.place(x=103, y=50)
 timer_label_2 = tk.Label(display,
     text=":",
-    font=("Calibri", 25, "bold"))
+    font=("Calibri", 25, "bold")
+)
 timer_label_2.place(x=179, y=50)
 
 hours_entry = tk.Entry(display,
