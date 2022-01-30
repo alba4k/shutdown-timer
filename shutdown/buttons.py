@@ -27,17 +27,20 @@ def shutdown(seconds, minutes, hours):
     if(sys.platform == "win32"):
         os.system("shutdown -s -t "+str(seconds+minutes*60+hours*3600))
     else:
-        os.system("shutdown +" + str(ceil(seconds/60)+minutes+hours*60)
+        os.system("shutdown +" + str(ceil(seconds/60)+minutes+hours*60))
+
 def restart(seconds, minutes, hours):
     if(sys.platform == "win32"):
         os.system("shutdown -r -t "+str(seconds+minutes*60+hours*3600))
     else:
-        os.system("shutdown -r +" + str(ceil(seconds/60)+minutes+hours*60)
+        os.system("shutdown -r +" + str(ceil(seconds/60)+minutes+hours*60))
+
 def logout(seconds, minutes, hours):
     if(sys.platform == "win32"):
         os.system("shutdown -l -t "+str(seconds+minutes*60+hours*3600))
     else:
-        os.system("shutdown -H +" + str(ceil(seconds/60)+minutes+hours*60)
+        os.system("shutdown -H +" + str(ceil(seconds/60)+minutes+hours*60))
+
 def cancel():
     if(sys.platform == "win32"):
         os.system("shutdown -a")
