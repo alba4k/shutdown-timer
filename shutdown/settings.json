@@ -1,6 +1,6 @@
 {
     "lang": "English",
-    "usingDarkTheme": false,
+    "usingDarkTheme": true,
     "English": {
         "display.version": "Version",
         "settings.title": "Settings",
