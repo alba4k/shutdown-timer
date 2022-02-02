@@ -1,5 +1,5 @@
 from os import system
-from math import *
+from math import ceil
 
 def shutdown(seconds, minutes, hours):
     system("shutdown +" + str(ceil(seconds/60)+minutes+hours*60))
