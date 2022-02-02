@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from json import loads,dumps
 import tkinter as tk
 from PIL import ImageTk
