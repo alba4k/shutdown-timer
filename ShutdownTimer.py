@@ -5,9 +5,7 @@ import PIL._tkinter_finder
 import unixlib as buttons
 from os import chdir,path
 
-chdir(path.dirname(__file__))
-
-settings_json = ope3n("shutdown/settings.json", "r")
+settings_json = open("shutdown/settings.json", "r")
 settings = loads(settings_json.read())
 settings_json.close()
 
