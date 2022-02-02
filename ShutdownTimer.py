@@ -1,46 +1,23 @@
 import json
 import tkinter as tk
 from PIL import ImageTk
+import PIL._tkinter_finder
 import unixlib as buttons
 
 settings_json = open("shutdown/settings.json", "r")
 settings = json.loads(settings_json.read())
 settings_json.close()
 
-def lang_check(lang, settings_display = None,theme = None,theme_desc = None):
+def lang_check(lang, settings_display = None,theme = None,theme_desc = None, apply = None):
     settings["lang"] = lang
+    version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
     if(theme):
-        if(lang=="English"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-            settings_display.title(settings[settings["lang"]]["settings.title"])
-            theme.config(settings[text=settings["lang"]]["settings.theme"])
-            theme_desc.config(settings[text=settings["lang"]]["settings.theme_desc"])
-        if(lang=="Italian"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-            settings_display.title(settings[settings["lang"]]["settings.title"])
-            theme.config(settings[text=settings["lang"]]["settings.theme"])
-            theme_desc.config(settings[text=settings["lang"]]["settings.theme_desc"])
-        if(lang=="French"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-            settings_display.title(settings[settings["lang"]]["settings.title"])
-            theme.config(settings[text=settings["lang"]]["settings.theme"])
-            theme_desc.config(settings[text=settings["lang"]]["settings.theme_desc"])
-        if(lang=="Spanish"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-            settings_display.title(settings[settings["lang"]]["settings.title"])
-            theme.config(settings[text=settings["lang"]]["settings.theme"])
-            theme_desc.config(settings[text=settings["lang"]]["settings.theme_desc"])
-    else:
-        if(settings["lang"]=="English"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-        if(settings["lang"]=="Italian"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-        if(settings["lang"]=="French"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
-        if(settings["lang"]=="Spanish"):
-            version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
+        settings_display.title(settings[settings["lang"]]["settings.title"])
+        theme.config(text=settings[settings["lang"]]["settings.theme"])
+        theme_desc.config(text=settings[settings["lang"]]["settings.theme_desc"])
+        apply.config(text=settings[settings["lang"]]["settings.apply"])
 
-def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None,change_settings = False):
+def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
     if(change_settings):   # checks if it should change the settings.json file
         settings["usingDarkTheme"] = not settings["usingDarkTheme"]
     if(settings["usingDarkTheme"]):           # dark theme is on (primary window, display)
@@ -60,6 +37,7 @@ def theme_check(theme = None,settings_display = None,theme_desc = None,lang_sele
         if(theme):    # Apply dark theme to the secondary window, if shown
             settings_display.config(bg="#1C1C1C")
             theme.config(bg="#272727", fg = "#F0F0F0", activebackground = "#202020", activeforeground="#F0F0F0")
+            apply.config(bg="#272727", fg = "#F0F0F0", activebackground = "#202020", activeforeground="#F0F0F0")
             theme_desc.config(bg = "#1c1c1c", fg = "#f0f0f0")
             lang_select.config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#1c1c1c", activeforeground="#F0F0F0", highlightthickness=0)
             lang_select["menu"].config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#222299", activeforeground="#F0F0F0")
@@ -79,7 +57,8 @@ def theme_check(theme = None,settings_display = None,theme_desc = None,lang_sele
 
         if(theme):    # Apply light theme to the secondary window, if shown
             settings_display.config(bg="#F0F0F0")
-            theme.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000", text=lang["settings.theme"])
+            theme.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000")
+            apply.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000")
             theme_desc.config(bg = "#f0f0f0", fg = "#000000")
             lang_select.config(bg = "#f0f0f0", fg = "#000000", activebackground="#f0f0f0", activeforeground="#000000", highlightthickness=0)
             lang_select["menu"].config(bg = "#f0f0f0", fg = "#000000", activebackground="#9999FF", activeforeground="#000000")
@@ -89,10 +68,10 @@ def open_settings():
     settings_display.geometry("300x200")
     lang_choice = tk.StringVar(settings_display)
     lang_choice.set(settings["lang"])
-
+   
     lang_select = tk.OptionMenu(settings_display,
         lang_choice,
-        *["English", "Italiano", "Español", "Frainçois"]
+        *["English", "Italian", "Spanish", "French"]
     )
     lang_select.place(x=15, y=15)
 
@@ -107,6 +86,7 @@ def open_settings():
             settings_display,
             theme_desc,
             lang_select,
+            apply,
             True
         ),
         highlightthickness=0
@@ -115,16 +95,16 @@ def open_settings():
     apply = tk.Button(settings_display,
         command=lambda: lang_check(lang_choice.get(),
             settings_display,
+            theme,
             theme_desc,
-            lang_select,
-            True
+            apply
         ),
         highlightthickness=0
     )
-
+    apply.place(x=150, y=150)
     theme.place(x=15, y=60)
-    theme_check(theme, settings_display, theme_desc, lang_select)
-    lang_check(settings["lang"], settings_display, theme, theme_desc)
+    theme_check(theme, settings_display, theme_desc, lang_select, apply)
+    lang_check(settings["lang"], settings_display, theme, theme_desc, apply)
 
 display=tk.Tk(className="\nShutdown")
 display.geometry("400x250")
@@ -208,8 +188,9 @@ seconds_entry = tk.Entry(display,
 seconds_entry.place(x=200, y=50, width=50, height=50)
 
 open_settings() #when testing in the secondary window
-theme_check()
-lang_check(settings["lang"])
+#theme_check()
+#lang_check(settings["lang"])
+
 display.mainloop()
 
 settings_json = open("shutdown/settings.json", "w")

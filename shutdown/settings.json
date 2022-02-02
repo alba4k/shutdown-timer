@@ -1,28 +1,32 @@
 {
     "lang": "English",
-    "usingDarkTheme": true,
+    "usingDarkTheme": false,
     "English": {
         "display.version": "Version",
         "settings.title": "Settings",
         "settings.theme": "Theme",
-        "settings.theme_desc": "Changes the theme\nbetween light and dark."
+        "settings.theme_desc": "Changes the theme\nbetween light and dark.",
+        "settings.apply": "Apply"
     },
     "Italian": {
         "display.version": "Versione",
         "settings.title": "Impostazioni",
         "settings.theme": "Tema",
-        "settings.theme_desc": "Cambia il tema\ntra chiaro e scuro"
+        "settings.theme_desc": "Cambia il tema\ntra chiaro e scuro",
+        "settings.apply": "Applica"
     },
     "French": {
         "display.version": "Version",
         "settings.title": "\nOptions",
         "settings.theme": "Th\u00e8me",
-        "settings.theme_desc": "Changer le th\u00e8me entre\bclair et sombre."
+        "settings.theme_desc": "Changer le th\u00e8me entre\nclair et sombre.",
+        "settings.apply": "Appliquer"
     },
     "Spanish": {
         "display.version": "Version",
         "settings.title": "\nAjustes",
         "settings.theme": "Tema",
-        "settings.theme_desc": "Cambia el tema entre\nclaro y oscuro."
+        "settings.theme_desc": "Cambia el tema entre\nclaro y oscuro.",
+        "settings.apply": "Salvar"
     }
 }
