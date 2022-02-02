@@ -23,12 +23,18 @@ Why are you even reading this though?
 ```bash
 $ git clone https://github.com/alba4k/shutdown-timer
 $ cd shutdown-timer
-$ pyinstaller --onefile ShutdownTimer.py
+$ pyinstaller --onefile --noconsole ShutdownTimer.py
 ```
 a lot of useless stuff will appear, your executable will be in a new directory called dist
 
 It can be moved, but it should always be in the same directory as the folder named "shutdown"
 
+## Running the python file:
+```
+$ git clone https://github.com/alba4k/shutdown-timer
+$ cd shutdown-timer
+$ python ShutdownTimer.py
+```
 
 I would also like to thank Leonardo Preda for helping me to design a nice UI
 
