@@ -4,7 +4,7 @@ from PIL import ImageTk
 import PIL._tkinter_finder
 import unixlib as buttons
 
-settings_json = open("shutdown/settings.json", "r")
+settings_json = open(r"shutdown/settings.json", "r")
 settings = json.loads(settings_json.read())
 settings_json.close()
 
@@ -108,15 +108,15 @@ def open_settings():
 
 display=tk.Tk(className="\nShutdown")
 display.geometry("400x250")
-#display.iconbitmap("shutdown/assets/icon.ico")
+#display.iconbitmap(r"shutdown/assets/icon.ico")
 hours,minutes,seconds=tk.IntVar(),tk.IntVar(),tk.IntVar()
 
-shutdown_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/shutdown.png")
-restart_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/restart.png")
-logout_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/logout.png")
-cancel_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/cancel.png")
-white_settings_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/white_settings.png")
-black_settings_icon = ImageTk.PhotoImage(file="shutdown/assets/icons/black_settings.png")
+shutdown_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/shutdown.png")
+restart_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/restart.png")
+logout_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/logout.png")
+cancel_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/cancel.png")
+white_settings_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/white_settings.png")
+black_settings_icon = ImageTk.PhotoImage(file=r"shutdown/assets/icons/black_settings.png")
 
 version = tk.Label(display,
     font=("Helvetica", 12))
@@ -193,6 +193,6 @@ open_settings() #when testing in the secondary window
 
 display.mainloop()
 
-settings_json = open("shutdown/settings.json", "w")
+settings_json = open(r"shutdown/settings.json", "w")
 settings_json.write(json.dumps(settings, indent = 4))
 settings_json.close()

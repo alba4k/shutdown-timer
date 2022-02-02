@@ -7,19 +7,19 @@ Why are you even reading this though?
 
 ---
 
-Features:
+## Features:
 * ~~it sucks~~
 * neat UI (hopefully)
 *  Shutdown - Restart and logout in some time
 
 
-Dependencies:
-* git (cloning the directory)
-* Python
-* pyinstaller (to be installed with `pip install pyinstaller`)
+## Requirements:
+* git (cloning the repository)
+* Python (if using the source code)
+* pyinstaller (compiling the program, installed with `pip install pyinstaller`)
 
 
-Making an executable:
+## Making an executable:
 ```bash
 $ git clone https://github.com/alba4k/shutdown-timer
 $ cd shutdown-timer
