@@ -1,6 +1,20 @@
 {
     "lang": "English",
     "usingDarkTheme": true,
+    "colors": {
+        "light-bg": "#f0f0f0",
+        "light-fg": "#000000",
+        "light-alt": "#dadada",
+        "light-select": "#9999ff",
+        "dark-bg": "#1c1c1c",
+        "dark-fg": "#f0f0f0",
+        "dark-alt": "#252525",
+        "dark-select": "#222299",
+        "bg": "#f0f0f0",
+        "fg": "#f0f0f0",
+        "alt": "#252525",
+        "select": "#9999ff"
+    },
     "English": {
         "display.version": "Version",
         "settings.title": "Settings",

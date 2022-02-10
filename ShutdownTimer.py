@@ -5,7 +5,6 @@ import tkinter as tk
 from PIL import ImageTk
 import PIL._tkinter_finder
 import unixlib as buttons
-from os import chdir,path
 
 settings_json = open("shutdown/settings.json", "r")
 settings = loads(settings_json.read())
@@ -19,7 +18,41 @@ def lang_check(lang, settings_display = None,theme = None,theme_desc = None, app
         theme.config(text=settings[settings["lang"]]["settings.theme"])
         theme_desc.config(text=settings[settings["lang"]]["settings.theme_desc"])
         apply.config(text=settings[settings["lang"]]["settings.apply"])
+"""
+def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
+    if(change_settings):   # checks if it should change the settings.json file
+        settings["usingDarkTheme"] = not settings["usingDarkTheme"]
+        if(settings["usingDarkTheme"]):
+            settings["colors"]["bg"] = settings["colors"]["bg"]
+            settings["colors"]["fg"] = "#f0f0f0"
+            settings["colors"]["alt"] = "#252525"
+        else:
+            settings["colors"]["bg"] = "#f0f0f0"
+            settings["colors"]["fg"] = "#000000"
+            settings["colors"]["alt"] = "#dadada"
 
+    display.config(bg = settings["colors"]["bg"])
+    version.config(bg = settings["colors"]["bg"], fg=settings["colors"]["fg"])
+    cancel.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
+    hours_entry.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"])
+    minutes_entry.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"])
+    seconds_entry.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"])
+    timer_label_1.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"])
+    timer_label_2.config(bg = settings["colors"]["bg"], fg = "#F0F0F0")
+    restart_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
+    shutdown_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
+    logout_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
+    settings_show.config(bg=settings["colors"]["bg"], activebackground= settings["colors"]["bg"], image = white_settings_icon)
+
+    if(theme):    # Apply dark theme to the secondary window, if shown
+        settings_display.config(bg = settings["colors"]["bg"])
+        theme.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["bg"], activeforeground=settings["colors"]["fg"])
+        apply.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["bg"], activeforeground=settings["colors"]["fg"])
+        theme_desc.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"])
+        lang_select.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["bg"], activeforeground=settings["colors"]["fg"], highlightthickness=0)
+        lang_select["menu"].config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["select"], activeforeground=settings["colors"]["fg"])
+   
+"""
 def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
     if(change_settings):   # checks if it should change the settings.json file
         settings["usingDarkTheme"] = not settings["usingDarkTheme"]
@@ -65,6 +98,7 @@ def theme_check(theme = None,settings_display = None,theme_desc = None,lang_sele
             theme_desc.config(bg = "#f0f0f0", fg = "#000000")
             lang_select.config(bg = "#f0f0f0", fg = "#000000", activebackground="#f0f0f0", activeforeground="#000000", highlightthickness=0)
             lang_select["menu"].config(bg = "#f0f0f0", fg = "#000000", activebackground="#9999FF", activeforeground="#000000")
+"""
 
 def open_settings():
     settings_display = tk.Tk()
