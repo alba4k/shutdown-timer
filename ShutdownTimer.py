@@ -6,11 +6,11 @@ from PIL import ImageTk
 import PIL._tkinter_finder
 import unixlib as buttons
 
-settings_json = open("shutdown/settings.json", "r")
+settings_json = open("shutdown/config.json", "r")
 settings = loads(settings_json.read())
 settings_json.close()
 
-def lang_check(lang, settings_display = None,theme = None,theme_desc = None, apply = None):
+def lang_check(settings_display = None,theme = None,theme_desc = None, apply = None, lang = settings["lang"]):
     settings["lang"] = lang
     version.config(text=settings[settings["lang"]]["display.version"]+" 2.0\t\t\t         alba4k")
     if(theme):
@@ -18,23 +18,32 @@ def lang_check(lang, settings_display = None,theme = None,theme_desc = None, app
         theme.config(text=settings[settings["lang"]]["settings.theme"])
         theme_desc.config(text=settings[settings["lang"]]["settings.theme_desc"])
         apply.config(text=settings[settings["lang"]]["settings.apply"])
-"""
+
 def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
-    if(change_settings):   # checks if it should change the settings.json file
-        settings["usingDarkTheme"] = not settings["usingDarkTheme"]
-        if(settings["usingDarkTheme"]):
-            settings["colors"]["bg"] = settings["colors"]["bg"]
-            settings["colors"]["fg"] = "#f0f0f0"
-            settings["colors"]["alt"] = "#252525"
-        else:
+    if(settings["usingDarkTheme"]):
+        if(change_settings):
+            settings["usingDarkTheme"] = not settings["usingDarkTheme"]
             settings["colors"]["bg"] = "#f0f0f0"
             settings["colors"]["fg"] = "#000000"
             settings["colors"]["alt"] = "#dadada"
+            settings_show.config(image = black_settings_icon)
+        else:
+            settings_show.config(image = white_settings_icon)
+    else:
+        if(change_settings):
+            settings["usingDarkTheme"] = not settings["usingDarkTheme"]
+            settings["colors"]["bg"] = "#1c1c1c"
+            settings["colors"]["fg"] = "#f0f0f0"
+            settings["colors"]["alt"] = "#252525"
+            settings_show.config(image = white_settings_icon)
+        else:
+            settings_show.config(image = black_settings_icon)
+
 
     display.config(bg = settings["colors"]["bg"])
     version.config(bg = settings["colors"]["bg"], fg=settings["colors"]["fg"])
     cancel.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
-    hours_entry.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"])
+    hours_entry.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"])
     minutes_entry.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"])
     seconds_entry.config(bg = settings["colors"]["alt"], fg = settings["colors"]["fg"])
     timer_label_1.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"])
@@ -42,7 +51,7 @@ def theme_check(theme = None,settings_display = None,theme_desc = None,lang_sele
     restart_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
     shutdown_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
     logout_button.config(bg=settings["colors"]["bg"], activebackground = settings["colors"]["bg"])
-    settings_show.config(bg=settings["colors"]["bg"], activebackground= settings["colors"]["bg"], image = white_settings_icon)
+    settings_show.config(bg=settings["colors"]["bg"], activebackground= settings["colors"]["bg"])
 
     if(theme):    # Apply dark theme to the secondary window, if shown
         settings_display.config(bg = settings["colors"]["bg"])
@@ -130,18 +139,18 @@ def open_settings():
     )
 
     apply = tk.Button(settings_display,
-        command=lambda: lang_check(lang_choice.get(),
-            settings_display,
+        command=lambda: lang_check(settings_display,
             theme,
             theme_desc,
-            apply
+            apply,
+            lang_choice.get()
         ),
         highlightthickness=0
     )
     apply.place(x=150, y=150)
     theme.place(x=15, y=60)
     theme_check(theme, settings_display, theme_desc, lang_select, apply)
-    lang_check(settings["lang"], settings_display, theme, theme_desc, apply)
+    lang_check(settings_display, theme, theme_desc, apply)
 
 display=tk.Tk(className="\nShutdown")
 display.geometry("400x250")
@@ -225,11 +234,11 @@ seconds_entry = tk.Entry(display,
 seconds_entry.place(x=200, y=50, width=50, height=50)
 
 open_settings() #when testing in the secondary window
-#theme_check()
-#lang_check(settings["lang"])
+theme_check()
+lang_check()
 
 display.mainloop()
 
-settings_json = open("shutdown/settings.json", "w")
+settings_json = open("shutdown/config.json", "w")
 settings_json.write(dumps(settings, indent = 4))
 settings_json.close()

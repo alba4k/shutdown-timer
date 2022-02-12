@@ -1,6 +1,6 @@
 {
-    "lang": "English",
-    "usingDarkTheme": true,
+    "lang": "Italian",
+    "usingDarkTheme": false,
     "colors": {
         "light-bg": "#f0f0f0",
         "light-fg": "#000000",
@@ -11,8 +11,8 @@
         "dark-alt": "#252525",
         "dark-select": "#222299",
         "bg": "#f0f0f0",
-        "fg": "#f0f0f0",
-        "alt": "#252525",
+        "fg": "#000000",
+        "alt": "#dadada",
         "select": "#9999ff"
     },
     "English": {
