@@ -22,22 +22,21 @@ def lang_check(settings_display = None,theme = None,theme_desc = None, apply = N
 def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
     if(settings["usingDarkTheme"]):
         if(change_settings):
-            settings["usingDarkTheme"] = not settings["usingDarkTheme"]
+            settings["usingDarkTheme"] = False
             settings["colors"]["bg"] = "#f0f0f0"
             settings["colors"]["fg"] = "#000000"
             settings["colors"]["alt"] = "#dadada"
             settings_show.config(image = black_settings_icon)
         else:
             settings_show.config(image = white_settings_icon)
+    elif(change_settings):
+        settings["usingDarkTheme"] = True
+        settings["colors"]["bg"] = "#1c1c1c"
+        settings["colors"]["fg"] = "#f0f0f0"
+        settings["colors"]["alt"] = "#252525"
+        settings_show.config(image = white_settings_icon)
     else:
-        if(change_settings):
-            settings["usingDarkTheme"] = not settings["usingDarkTheme"]
-            settings["colors"]["bg"] = "#1c1c1c"
-            settings["colors"]["fg"] = "#f0f0f0"
-            settings["colors"]["alt"] = "#252525"
-            settings_show.config(image = white_settings_icon)
-        else:
-            settings_show.config(image = black_settings_icon)
+        settings_show.config(image = black_settings_icon)
 
 
     display.config(bg = settings["colors"]["bg"])
