@@ -63,6 +63,7 @@ def theme_check(theme=None, settings_display=None,theme_desc=None,lang_select=No
 def open_settings():
     settings_display = tk.Tk()
     settings_display.geometry("300x200")
+    settings_display.resizable(False, False)
     lang_choice = tk.StringVar(settings_display)
     lang_choice.set(settings["lang"])
    
@@ -105,6 +106,7 @@ def open_settings():
 
 display=tk.Tk(className=" Shutdown")
 display.geometry("400x250")
+display.resizable(False, False)
 #display.iconbitmap("shutdown/assets/icon.ico")
 hours,minutes,seconds=tk.IntVar(),tk.IntVar(),tk.IntVar()
 
