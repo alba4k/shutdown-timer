@@ -19,24 +19,24 @@ def lang_check(settings_display = None,theme = None,theme_desc = None, apply = N
         theme_desc.config(text=settings[settings["lang"]]["settings.theme_desc"])
         apply.config(text=settings[settings["lang"]]["settings.apply"])
 
-def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
+def theme_check(theme=None, settings_display=None,theme_desc=None,lang_select=None, apply=None,change_settings = False):
     if(settings["usingDarkTheme"]):
         if(change_settings):
             settings["usingDarkTheme"] = False
             settings["colors"]["bg"] = "#f0f0f0"
             settings["colors"]["fg"] = "#000000"
             settings["colors"]["alt"] = "#dadada"
-            settings_show.config(image = black_settings_icon)
+            settings_show.config(image=black_settings_icon)
         else:
-            settings_show.config(image = white_settings_icon)
+            settings_show.config(image=white_settings_icon)
     elif(change_settings):
         settings["usingDarkTheme"] = True
         settings["colors"]["bg"] = "#1c1c1c"
         settings["colors"]["fg"] = "#f0f0f0"
         settings["colors"]["alt"] = "#252525"
-        settings_show.config(image = white_settings_icon)
+        settings_show.config(image=white_settings_icon)
     else:
-        settings_show.config(image = black_settings_icon)
+        settings_show.config(image=black_settings_icon)
 
 
     display.config(bg = settings["colors"]["bg"])
@@ -60,54 +60,6 @@ def theme_check(theme = None,settings_display = None,theme_desc = None,lang_sele
         lang_select.config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["bg"], activeforeground=settings["colors"]["fg"], highlightthickness=0)
         lang_select["menu"].config(bg = settings["colors"]["bg"], fg = settings["colors"]["fg"], activebackground = settings["colors"]["select"], activeforeground=settings["colors"]["fg"])
    
-"""
-def theme_check(theme = None,settings_display = None,theme_desc = None,lang_select=None, apply=None,change_settings = False):
-    if(change_settings):   # checks if it should change the settings.json file
-        settings["usingDarkTheme"] = not settings["usingDarkTheme"]
-    if(settings["usingDarkTheme"]):           # dark theme is on (primary window, display)
-        display.config(bg = "#1C1C1C")
-        version.config(bg="#1C1C1C", fg="#F0F0F0")
-        cancel.config(bg="#1C1C1C", activebackground = "#1C1C1C")
-        hours_entry.config(bg = "#252525", fg = "#F0F0F0")
-        minutes_entry.config(bg = "#252525", fg = "#F0F0F0")
-        seconds_entry.config(bg = "#252525", fg = "#F0F0F0")
-        timer_label_1.config(bg = "#1C1C1C", fg = "#F0F0F0")
-        timer_label_2.config(bg = "#1C1C1C", fg = "#F0F0F0")
-        restart_button.config(bg="#1C1C1C", activebackground = "#1C1C1C")
-        shutdown_button.config(bg="#1C1C1C", activebackground = "#1C1C1C")
-        logout_button.config(bg="#1C1C1C", activebackground = "#1C1C1C")
-        settings_show.config(bg="#1C1C1C", activebackground="#1C1C1C", image = white_settings_icon)
-
-        if(theme):    # Apply dark theme to the secondary window, if shown
-            settings_display.config(bg="#1C1C1C")
-            theme.config(bg="#272727", fg = "#F0F0F0", activebackground = "#202020", activeforeground="#F0F0F0")
-            apply.config(bg="#272727", fg = "#F0F0F0", activebackground = "#202020", activeforeground="#F0F0F0")
-            theme_desc.config(bg = "#1c1c1c", fg = "#f0f0f0")
-            lang_select.config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#1c1c1c", activeforeground="#F0F0F0", highlightthickness=0)
-            lang_select["menu"].config(bg = "#1c1c1c", fg = "#f0f0f0", activebackground = "#222299", activeforeground="#F0F0F0")
-    else:    # light theme is on (primary window, display)
-        display.config(bg = "#F0F0F0")
-        version.config(bg = "#F0F0F0", fg="#000000")
-        cancel.config(bg = "#F0F0F0", activebackground="#F0F0F0")
-        hours_entry.config(bg = "#DADADA", fg="#000000")
-        minutes_entry.config(bg = "#DADADA", fg="#000000")
-        seconds_entry.config(bg = "#DADADA", fg="#000000")
-        timer_label_1.config(bg = "#F0F0F0", fg = "#000000")
-        timer_label_2.config(bg = "#F0F0F0", fg = "#000000")
-        restart_button.config(bg="#F0F0F0", activebackground = "#F0F0F0")
-        shutdown_button.config(bg="#F0F0F0", activebackground = "#F0F0F0")
-        logout_button.config(bg="#F0F0F0", activebackground = "#F0F0F0")
-        settings_show.config(bg = "#F0F0F0", activebackground="#F0F0F0", image = black_settings_icon)
-
-        if(theme):    # Apply light theme to the secondary window, if shown
-            settings_display.config(bg="#F0F0F0")
-            theme.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000")
-            apply.config(bg = "#F0F0F0", fg="#000000", activebackground="#F0F0F0", activeforeground="#000000")
-            theme_desc.config(bg = "#f0f0f0", fg = "#000000")
-            lang_select.config(bg = "#f0f0f0", fg = "#000000", activebackground="#f0f0f0", activeforeground="#000000", highlightthickness=0)
-            lang_select["menu"].config(bg = "#f0f0f0", fg = "#000000", activebackground="#9999FF", activeforeground="#000000")
-"""
-
 def open_settings():
     settings_display = tk.Tk()
     settings_display.geometry("300x200")
@@ -151,7 +103,7 @@ def open_settings():
     theme_check(theme, settings_display, theme_desc, lang_select, apply)
     lang_check(settings_display, theme, theme_desc, apply)
 
-display=tk.Tk(className="\nShutdown")
+display=tk.Tk(className=" Shutdown")
 display.geometry("400x250")
 #display.iconbitmap("shutdown/assets/icon.ico")
 hours,minutes,seconds=tk.IntVar(),tk.IntVar(),tk.IntVar()
