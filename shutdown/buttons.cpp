@@ -24,10 +24,12 @@ def cancel():
 #include <iostream>
 #include <cmath>
 
-void test(int seconds, int minutes, int hours) {
-    std::cout << ceil((float)seconds/60) + minutes + hours*60;
+void shutdown(int seconds, int minutes, int hours) {
+    std::cout << "shutdown -h +" + '\n';
+    system("shutdown -h +" + (const char)(ceil((float)seconds/60) + minutes + hours*60) + '\n');
 }
 
 int main() {
-    test(1, 3, 2);
+    //system("shutdown -h +30");
+    shutdown(1, 3, 2);
 }
