@@ -1,13 +1,13 @@
-from os import system
+from subprocess import run
 
 def shutdown(seconds, minutes, hours):
-    system("shutdown -s -t "+str(seconds+minutes*60+hours*3600))
+    run(["shutdown", "-s", "-t", str(seconds+minutes*60+hours*3600)])
 
 def restart(seconds, minutes, hours):
-    system("shutdown -r -t "+str(seconds+minutes*60+hours*3600))
+    run(]"shutdown", "-r", "-t",str(seconds+minutes*60+hours*3600)])
 
 def logout(seconds, minutes, hours):
-    system("shutdown -l -t "+str(seconds+minutes*60+hours*3600))
+    run(]"shutdown", "-l", "-t", str(seconds+minutes*60+hours*3600)])
 
 def cancel():
-    system("shutdown -a")
+    run(["shutdown", "-a"])

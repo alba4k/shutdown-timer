@@ -1,14 +1,14 @@
-from os import system
+from subprocess import run
 from math import ceil
 
 def shutdown(seconds, minutes, hours):
-    system("shutdown +" + str(ceil(seconds/60)+minutes+hours*60))
+    run(["shutdown", str(ceil(seconds/60)+minutes+hours*60)])
 
 def restart(seconds, minutes, hours):
-    system("shutdown -r +" + str(ceil(seconds/60)+minutes+hours*60))
+    run(["shutdown", "-r", str(ceil(seconds/60)+minutes+hours*60)])
 
 def logout(seconds, minutes, hours):
-    system("shutdown -H +" + str(ceil(seconds/60)+minutes+hours*60))
+    run(["sudo shutdown", "-H", str(ceil(seconds/60)+minutes+hours*60)])
 
 def cancel():
-    system("shutdown -c")
+    run(["shutdown", "-c"])

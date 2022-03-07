@@ -186,7 +186,7 @@ seconds_entry = tk.Entry(display,
     font=("Helvetica", 30, "bold"))
 seconds_entry.place(x=200, y=50, width=50, height=50)
 
-open_settings() #when testing in the secondary window
+#open_settings() #when testing in the secondary window
 theme_check()
 lang_check()
 

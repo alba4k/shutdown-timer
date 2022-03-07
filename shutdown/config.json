@@ -1,10 +1,10 @@
 {
     "lang": "English",
-    "usingDarkTheme": false,
+    "usingDarkTheme": true,
     "colors": {
-        "bg": "#f0f0f0",
-        "fg": "#000000",
-        "alt": "#dadada",
+        "bg": "#1c1c1c",
+        "fg": "#f0f0f0",
+        "alt": "#252525",
         "select": "#9999ff"
     },
     "English": {
